@@ -1,0 +1,1387 @@
+Started by user Aleksandr Samoilov
+Loading library jenkins-pipeline-shared-functions-sfcc@master
+Attempting to resolve master from remote references...
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+ > git ls-remote -h git@git.ontrq.com:ci-team/jenkins-pipeline-shared-functions-sfcc.git # timeout=10
+Found match: refs/heads/master revision c26f830d2411269463de1a0cff703259b85d573a
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build@libs/6b57afe7c65025a3f7a47e1ec8438e9bc38496e242cc7446b76dc2994fb6148d/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@git.ontrq.com:ci-team/jenkins-pipeline-shared-functions-sfcc.git # timeout=10
+Fetching without tags
+Fetching upstream changes from git@git.ontrq.com:ci-team/jenkins-pipeline-shared-functions-sfcc.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+ > git fetch --no-tags --progress git@git.ontrq.com:ci-team/jenkins-pipeline-shared-functions-sfcc.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking out Revision c26f830d2411269463de1a0cff703259b85d573a (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c26f830d2411269463de1a0cff703259b85d573a # timeout=10
+Commit message: "Merge branch 'new_nodejs_versions_support' into 'master'"
+ > git rev-list --no-walk c26f830d2411269463de1a0cff703259b85d573a # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on ci-team-build-07 in /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $TPM_CREDENTIALS or $TPM_CREDENTIALS_USR or $TPM_CREDENTIALS_PSW
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] ansiColor
+[Pipeline] {
+
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+11:10:22  Timeout set to expire in 1 hr 30 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Cleaning Workspace)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] cleanWs
+11:10:22  [WS-CLEANUP] Deleting project workspace...
+11:10:22  [WS-CLEANUP] Deferred wipeout is used...
+11:10:22  [WS-CLEANUP] done
+[Pipeline] echo
+11:10:22  Workspace cleaned completely
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (What tools available on a node?)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+11:10:22  + node -v
+11:10:22  v14.21.3
+[Pipeline] sh
+11:10:23  + npm --version
+11:10:23  6.14.18
+[Pipeline] sh
+11:10:23  + git --version
+11:10:23  git version 2.24.3
+[Pipeline] sh
+11:10:24  + gulp -v
+11:10:24  [01:10:24] CLI version 2.0.1
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install npm modules)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+11:10:24  The recommended git tool is: NONE
+11:10:24  No credentials specified
+11:10:24  Cloning the remote Git repository
+11:10:24  Cloning repository git@bitbucket.org:astoundcommerce/build-suite.git
+11:10:24   > git init /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build # timeout=10
+11:10:24  Fetching upstream changes from git@bitbucket.org:astoundcommerce/build-suite.git
+11:10:24   > git --version # timeout=10
+11:10:24   > git --version # 'git version 2.24.3'
+11:10:24   > git fetch --tags --force --progress -- git@bitbucket.org:astoundcommerce/build-suite.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+11:10:27  Avoid second fetch
+11:10:27  Checking out Revision c3f0d18e7af3723d899ca05178c82f573e897106 (refs/remotes/origin/develop)
+11:10:27  Commit message: "Update Snipes"
+11:10:26   > git config remote.origin.url git@bitbucket.org:astoundcommerce/build-suite.git # timeout=10
+11:10:26   > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+11:10:27   > git rev-parse refs/remotes/origin/develop^{commit} # timeout=10
+11:10:27   > git config core.sparsecheckout # timeout=10
+11:10:27   > git checkout -f c3f0d18e7af3723d899ca05178c82f573e897106 # timeout=10
+11:10:27   > git branch -a -v --no-abbrev # timeout=10
+11:10:27   > git checkout -b develop c3f0d18e7af3723d899ca05178c82f573e897106 # timeout=10
+11:10:27   > git rev-list --no-walk f37cbb96d8a283eccd5a04c1a59db6e7ccc771c6 # timeout=10
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] echo
+11:10:27  Cannot find node_modules folder...
+[Pipeline] sh
+11:10:27  + npm install
+11:10:53  
+11:10:53  > node-sass@4.14.1 install /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/node_modules/node-sass
+11:10:53  > node scripts/install.js
+11:10:53  
+11:10:53  Cached binary found at /opt/jenkins/.npm/node-sass/4.14.1/linux-x64-83_binding.node
+11:10:54  
+11:10:54  > core-js@2.6.12 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/node_modules/core-js
+11:10:54  > node -e "try{require('./postinstall')}catch(e){}"
+11:10:54  
+11:10:54  
+11:10:54  > javascript-obfuscator@0.10.2 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/node_modules/javascript-obfuscator
+11:10:54  > opencollective postinstall
+11:10:54  
+11:10:54  
+11:10:54       *** Thank you for using javascript-obfuscator! ***
+11:10:54  
+11:10:54  Please consider donating to our open collective
+11:10:54       to help us maintain this package.
+11:10:54  
+11:10:54    https://opencollective.com/javascript-obfuscator/donate
+11:10:54  
+11:10:54                      ***
+11:10:54  
+11:10:54  
+11:10:54  > node-sass@4.14.1 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/node_modules/node-sass
+11:10:54  > node scripts/build.js
+11:10:54  
+11:10:55  Binary found at /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/node_modules/node-sass/vendor/linux-x64-83/binding.node
+11:10:55  Testing binary
+11:10:55  Binary is fine
+11:10:55  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/fsevents):
+11:10:55  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+11:10:55  
+11:10:55  added 1277 packages from 848 contributors and audited 1284 packages in 27.941s
+11:10:56  
+11:10:56  40 packages are looking for funding
+11:10:56    run `npm fund` for details
+11:10:56  
+11:10:56  found 178 vulnerabilities (10 low, 60 moderate, 78 high, 30 critical)
+11:10:56    run `npm audit fix` to fix them, or `npm audit` for details
+[Pipeline] sh
+11:10:56  + grunt --version
+11:10:56  grunt-cli v1.2.0
+11:10:56  grunt v0.4.5
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] dir
+11:10:56  Running in /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/tpm
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] echo
+11:10:56  Cannot find node_modules folder...
+[Pipeline] sh
+11:10:57  + npm install
+11:10:57  npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+11:10:57  npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+11:10:58  npm WARN deprecated mkdirp@0.5.4: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+11:11:04  npm notice created a lockfile as package-lock.json. You should commit this file.
+11:11:04  npm WARN tpm@1.0.0 No repository field.
+11:11:04  
+11:11:04  added 176 packages from 572 contributors and audited 176 packages in 7.062s
+11:11:04  
+11:11:04  49 packages are looking for funding
+11:11:04    run `npm fund` for details
+11:11:04  
+11:11:04  found 4 vulnerabilities (1 moderate, 2 high, 1 critical)
+11:11:04    run `npm audit fix` to fix them, or `npm audit` for details
+[Pipeline] sh
+11:11:05  + grunt --version
+11:11:05  grunt-cli v1.2.0
+11:11:05  grunt v0.4.5
+[Pipeline] sh
+11:11:05  Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+11:11:05  		 Affected argument(s) used the following variable(s): [TPM_CREDENTIALS_USR, TPM_CREDENTIALS_PSW]
+11:11:05  		 See https://jenkins.io/redirect/groovy-string-interpolation for details.
+11:11:05  + node app.js --tag goodwill_stg --mode STAGING --public **** --secret ****
+[Pipeline] writeFile
+[Pipeline] readJSON
+[Pipeline] sh
+11:11:06  + rm -f tpm.json
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code Checkout)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+11:11:06  + grunt clean:build --project=goodwill
+11:11:09  
+11:11:09  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:11:09  Run "grunt help" to print a list of available taks.
+11:11:09  
+11:11:09   -- Initializing...
+11:11:09     * Loading build/goodwill.json... OK
+11:11:09     * Found target environment: default
+11:11:09     * >> Password encryption is disabled.
+11:11:09   -- Initialization OK
+11:11:09  
+11:11:09   -- Project: goodwill
+11:11:09   -- Version: undefined
+11:11:09   -- Target:  undefined
+11:11:09  
+11:11:09  
+11:11:09  Running "clean:build" (clean) task
+11:11:09  >> 0 paths cleaned.
+11:11:09  
+11:11:09  Done, without errors.
+11:11:09  
+11:11:09  
+11:11:09  Execution Time (2023-04-10 01:11:07 UTC-7)
+11:11:09  loading tasks  1.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 100%
+11:11:09  Total 1.6s
+11:11:09  
+[Pipeline] sh
+11:11:09  + grunt dw_checkout --project=goodwill --target_branch=release/23.04.11.0 --build_version=23.04.11.0-238
+11:11:11  
+11:11:11  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:11:11  Run "grunt help" to print a list of available taks.
+11:11:11  
+11:11:11   -- Initializing...
+11:11:11     * Loading build/goodwill.json... OK
+11:11:11     * Found target environment: default
+11:11:11     * >> Password encryption is disabled.
+11:11:11   -- Initialization OK
+11:11:11  
+11:11:11   -- Project: goodwill
+11:11:11   -- Version: 23.04.11.0-238
+11:11:11   -- Target:  undefined
+11:11:11  
+11:11:11  
+11:11:11  Running "dw_checkout:default" (dw_checkout) task
+11:11:11  
+11:11:11     ** Repository:  git@bitbucket.org:newco-ecommerce/newco-code-repository.git
+11:11:11      - Branch: release/23.04.11.0
+11:11:11      - Source path: exports/goodwill/newco-code-repository/cartridges
+11:11:11  
+11:11:11  Running "gitclone:newco-code-repository" (gitclone) task
+11:11:29  
+11:11:29  Done, without errors.
+11:11:29  
+11:11:29  
+11:11:29  Execution Time (2023-04-10 01:11:10 UTC-7)
+11:11:29  loading tasks                    1.2s  ▇▇▇ 7%
+11:11:29  gitclone:newco-code-repository  16.1s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 93%
+11:11:29  Total 17.3s
+11:11:29  
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Sonar Code Analysis)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] dir
+11:11:29  Running in /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+[Pipeline] {
+[Pipeline] sh
+11:11:30  + echo '
+11:11:30  # Required metadata
+11:11:30  sonar.projectKey=goodwill
+11:11:30  sonar.projectName=Goodwill
+11:11:30  sonar.projectVersion=release/23.04.11.0
+11:11:30  
+11:11:30  # Disable SCM Sensor
+11:11:30  sonar.scm.disabled=true
+11:11:30  
+11:11:30  # Skip the package design and design analysis
+11:11:30  sonar.skipPackageDesign=true
+11:11:30  sonar.skipDesign=true
+11:11:30  
+11:11:30  # Comma-separated paths to directories with sources (required)
+11:11:30  sonar.sources=cartridges
+11:11:30  
+11:11:30  # Language
+11:11:30  sonar.language=js
+11:11:30  sonar.javascript.file.suffixes=.js
+11:11:30  
+11:11:30  # Encoding of sources files
+11:11:30  sonar.sourceEncoding=UTF-8
+11:11:30  
+11:11:30  # Exclusions/Inclusions
+11:11:30  #sonar.inclusions=
+11:11:30  sonar.exclusions=**/cartridge/static/default/js/*.js, **/cartridge/static/default/**/*.html, **/cartridge/client/default/src/js/components/public-path.js/**, **/cartridge/config/*.js, **/app_storefront_base/**, **/bm_app_storefront_base/**, **/app_custom_core/**, **/int_avatax_sfra/**, **/int_paypal/**, **/bc_library/**, **/bm_integrationframework/**, **/bc_integrationframework/**, **/bm_avatax/**, **/bm_ckeditor/**, **/int_b2ccrmsync/**, **/plugin_b2ccrmsync/**, **/int_monitoring/**'
+[Pipeline] tool
+[Pipeline] withSonarQubeEnv
+11:11:30  Injecting SonarQube environment variables using the configuration: sonar
+[Pipeline] {
+[Pipeline] sh
+11:11:30  + /opt/jenkins/tools/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+11:11:31  INFO: Scanner configuration file: /opt/jenkins/tools/sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties
+11:11:31  INFO: Project root configuration file: /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/sonar-project.properties
+11:11:31  INFO: SonarQube Scanner 3.2.0.1227
+11:11:31  INFO: Java 1.8.0_121 Oracle Corporation (64-bit)
+11:11:31  INFO: Linux 5.9.11-1.el7.elrepo.x86_64 amd64
+11:11:31  INFO: SONAR_SCANNER_OPTS=-Xmx1536m
+11:11:31  INFO: User cache: /opt/jenkins/.sonar/cache
+11:11:31  INFO: SonarQube server 8.9.10
+11:11:31  INFO: Default locale: "en_US", source code encoding: "UTF-8"
+11:11:32  INFO: Load global settings
+11:11:32  INFO: Load global settings (done) | time=123ms
+11:11:32  INFO: Server id: 4A84ECBF-AWXIk8x6dy58CW3mX1ft
+11:11:32  INFO: User cache: /opt/jenkins/.sonar/cache
+11:11:32  INFO: Load/download plugins
+11:11:32  INFO: Load plugins index
+11:11:32  INFO: Load plugins index (done) | time=45ms
+11:11:33  INFO: Load/download plugins (done) | time=556ms
+11:11:34  INFO: Process project properties
+11:11:34  INFO: Process project properties (done) | time=9ms
+11:11:34  INFO: Execute project builders
+11:11:34  INFO: Execute project builders (done) | time=2ms
+11:11:34  INFO: Project key: goodwill
+11:11:34  INFO: Base dir: /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:11:34  INFO: Working dir: /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/.scannerwork
+11:11:34  INFO: Load project settings for component key: 'goodwill'
+11:11:34  INFO: Load project settings for component key: 'goodwill' (done) | time=46ms
+11:11:34  INFO: Auto-configuring with CI 'Jenkins'
+11:11:34  INFO: Load quality profiles
+11:11:34  INFO: Load quality profiles (done) | time=60ms
+11:11:34  INFO: Auto-configuring with CI 'Jenkins'
+11:11:34  INFO: Load active rules
+11:11:36  INFO: Load active rules (done) | time=1588ms
+11:11:36  INFO: Indexing files...
+11:11:36  INFO: Project configuration:
+11:11:36  INFO:   Excluded sources: **/com/avalara/avatax/services/**, **/com/unica/**, **/api/jaxb/**, **/connectorModule/org/w3/www/_2005/_05/xmlmime/**, **/com/ibm/**, **/node_modules/**, **/bc_library/cartridge/static/default/ext-core/ext-all-debug.js, **/bc_library/cartridge/static/default/ext-core-5/ext-all-debug.js, **/Gruntfile.js**, **/gulpfile.js**, **/cartridge/static/default/js/**, **/**/static/default/js/**, **/static/default/js/**, **/cartridge/**/**/lib/jquery/*.js**, **/cartridge/static/default/js/*.js, **/cartridge/static/default/**/*.html, **/cartridge/client/default/src/js/components/public-path.js/**, **/cartridge/config/*.js, **/app_storefront_base/**, **/bm_app_storefront_base/**, **/app_custom_core/**, **/int_avatax_sfra/**, **/int_paypal/**, **/bc_library/**, **/bm_integrationframework/**, **/bc_integrationframework/**, **/bm_avatax/**, **/bm_ckeditor/**, **/int_b2ccrmsync/**, **/plugin_b2ccrmsync/**, **/int_monitoring/**
+11:11:36  INFO:   Excluded sources for coverage: **/com/avalara/avatax/services/**, **/com/unica/**, **/api/jaxb/**, **/connectorModule/org/w3/www/_2005/_05/xmlmime/**, **/com/ibm/**
+11:11:36  INFO: Load project repositories
+11:11:37  INFO: Load project repositories (done) | time=535ms
+11:11:38  INFO: 2265 files indexed
+11:11:38  INFO: 1774 files ignored because of inclusion/exclusion patterns
+11:11:38  INFO: Quality profile for css: Sonar way
+11:11:38  INFO: Quality profile for js: Sonar way Recommended no Deprecated rules
+11:11:38  INFO: Quality profile for mule: MuleSoft Rules for Mule 4.x
+11:11:38  INFO: Quality profile for ts: Sonar way
+11:11:38  INFO: ------------- Run sensors on module Goodwill
+11:11:38  INFO: Load metrics repository
+11:11:38  INFO: Load metrics repository (done) | time=26ms
+11:11:40  INFO: Sensor CSS Metrics [cssfamily]
+11:11:40  INFO: Sensor CSS Metrics [cssfamily] (done) | time=436ms
+11:11:40  INFO: Sensor CSS Rules [cssfamily]
+11:11:41  INFO: 76 source files to be analyzed
+11:11:42  INFO: 76/76 source files have been analyzed
+11:11:42  INFO: Sensor CSS Rules [cssfamily] (done) | time=2275ms
+11:11:42  INFO: Sensor JaCoCo XML Report Importer [jacoco]
+11:11:42  INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+11:11:42  INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+11:11:42  INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=16ms
+11:11:42  INFO: Sensor JavaScript analysis [javascript]
+11:11:48  INFO: 675 source files to be analyzed
+11:11:58  INFO: 51/675 files analyzed, current file: cartridges/app_storefront_widgets/cartridge/models/order/decorators/trackingInfo.js
+11:12:08  INFO: 200/675 files analyzed, current file: cartridges/modules/util/type.js
+11:12:17  INFO: 370/675 files analyzed, current file: cartridges/int_marketing_cloud/cartridge/scripts/tracking/trackingLink.js
+11:12:27  INFO: 574/675 files analyzed, current file: cartridges/app_custom_goodwill/cartridge/controllers/Order.js
+11:12:33  INFO: 675/675 source files have been analyzed
+11:12:33  INFO: Sensor JavaScript analysis [javascript] (done) | time=50252ms
+11:12:33  INFO: Sensor TypeScript analysis [javascript]
+11:12:33  INFO: Found 2 tsconfig.json file(s): [/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/cartridges/tsconfig.json, /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/dw-api-types/tsconfig.json]
+11:12:33  INFO: 241 source files to be analyzed
+11:12:33  INFO: Analyzing 241 files using tsconfig: /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/cartridges/tsconfig.json
+11:12:43  INFO: 90/241 files analyzed, current file: cartridges/int_gtm_w/cartridge/client/default/js/components/events.ts
+11:12:53  INFO: 183/241 files analyzed, current file: cartridges/app_storefront_widgets/cartridge/client/default/js/widgets/header/MenuBarItem.ts
+11:12:58  INFO: 241/241 source files have been analyzed
+11:12:58  INFO: Sensor TypeScript analysis [javascript] (done) | time=24668ms
+11:12:58  INFO: Sensor C# Project Type Information [csharp]
+11:12:58  INFO: Sensor C# Project Type Information [csharp] (done) | time=3ms
+11:12:58  INFO: Sensor C# Properties [csharp]
+11:12:58  INFO: Sensor C# Properties [csharp] (done) | time=3ms
+11:12:58  INFO: Sensor JavaXmlSensor [java]
+11:12:58  INFO: 38 source files to be analyzed
+11:12:58  INFO: 38/38 source files have been analyzed
+11:12:58  INFO: Sensor JavaXmlSensor [java] (done) | time=407ms
+11:12:58  INFO: Sensor HTML [web]
+11:12:58  INFO: Sensor HTML [web] (done) | time=8ms
+11:12:58  INFO: Sensor com.mulesoft.services.tools.sonarqube.sensor.MuleSensor [mulevalidationsonarqubepluginmule]
+11:12:58  INFO: Sensor com.mulesoft.services.tools.sonarqube.sensor.MuleSensor [mulevalidationsonarqubepluginmule] (done) | time=104ms
+11:12:58  INFO: Sensor Compute size of configuration file [mulevalidationsonarqubepluginmule]
+11:12:58  INFO: Sensor Compute size of configuration file [mulevalidationsonarqubepluginmule] (done) | time=23ms
+11:12:58  INFO: Sensor Compute the coverage of the applications [mulevalidationsonarqubepluginmule]
+11:12:58  INFO: Sensor Compute the coverage of the applications [mulevalidationsonarqubepluginmule] (done) | time=0ms
+11:12:58  INFO: Sensor Compute number of unit test cases [mulevalidationsonarqubepluginmule]
+11:12:58  INFO: Sensor Compute number of unit test cases [mulevalidationsonarqubepluginmule] (done) | time=14ms
+11:12:58  INFO: Sensor VB.NET Project Type Information [vbnet]
+11:12:58  INFO: Sensor VB.NET Project Type Information [vbnet] (done) | time=1ms
+11:12:58  INFO: Sensor VB.NET Properties [vbnet]
+11:12:58  INFO: Sensor VB.NET Properties [vbnet] (done) | time=1ms
+11:12:58  INFO: ------------- Run sensors on project
+11:12:58  INFO: Sensor Zero Coverage Sensor
+11:12:58  INFO: Sensor Zero Coverage Sensor (done) | time=110ms
+11:12:58  INFO: SCM Publisher is disabled
+11:12:58  INFO: CPD Executor 99 files had no CPD blocks
+11:12:58  INFO: CPD Executor Calculating CPD for 812 files
+11:12:58  INFO: CPD Executor CPD calculation finished (done) | time=220ms
+11:12:59  INFO: Analysis report generated in 256ms, dir size=7 MB
+11:13:00  INFO: Analysis report compressed in 1765ms, zip size=3 MB
+11:13:01  INFO: Analysis report uploaded in 303ms
+11:13:01  INFO: ANALYSIS SUCCESSFUL, you can browse https://ci-sonar-02.astoundcommerce.com/sonar/dashboard?id=goodwill
+11:13:01  INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+11:13:01  INFO: More about the report processing at https://ci-sonar-02.astoundcommerce.com/sonar/api/ce/task?id=AYdqOboM9OTK4OgW0qAb
+11:13:13  INFO: Analysis total time: 1:38.551 s
+11:13:13  INFO: ------------------------------------------------------------------------
+11:13:13  INFO: EXECUTION SUCCESS
+11:13:13  INFO: ------------------------------------------------------------------------
+11:13:13  INFO: Total time: 1:40.762s
+11:13:13  INFO: Final Memory: 22M/425M
+11:13:13  INFO: ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withSonarQubeEnv
+[Pipeline] archiveArtifacts
+11:13:13  Archiving artifacts
+11:13:13  Recording fingerprints
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] waitForQualityGate
+11:13:13  Checking status of SonarQube task 'AYdqOboM9OTK4OgW0qAb' on server 'sonar'
+11:13:13  SonarQube task 'AYdqOboM9OTK4OgW0qAb' status is 'IN_PROGRESS'
+11:13:31  The incoming webhook matched the configured webhook secret
+11:13:31  SonarQube task 'AYdqOboM9OTK4OgW0qAb' status is 'SUCCESS'
+11:13:31  SonarQube task 'AYdqOboM9OTK4OgW0qAb' completed. Quality gate is 'OK'
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (JS & CSS optimization)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+11:13:31  Running in /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] echo
+11:13:31  Cannot find node_modules folder...
+[Pipeline] sh
+11:13:31  + npm install
+11:13:32  
+11:13:32  > sfra-boilerplate@2.3.0 preinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:13:32  > npm run init:check:node
+11:13:32  
+11:13:32  
+11:13:32  > sfra-boilerplate@2.3.0 init:check:node /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:13:32  > node ./utils/helpers/check-node-version.js
+11:13:32  
+11:13:32  npm WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@2. I'll try to do my best with it!
+11:14:19  
+11:14:19  > core-js@2.6.12 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/babel-runtime/node_modules/core-js
+11:14:19  > node -e "try{require('./postinstall')}catch(e){}"
+11:14:19  
+11:14:19  
+11:14:19  > core-js@2.6.12 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/sticky-sidebar-v2/node_modules/core-js
+11:14:19  > node -e "try{require('./postinstall')}catch(e){}"
+11:14:19  
+11:14:19  
+11:14:19  > es5-ext@0.10.62 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/es5-ext
+11:14:19  >  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+11:14:19  
+11:14:19  
+11:14:19  > core-js@3.27.2 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/core-js
+11:14:19  > node -e "try{require('./postinstall')}catch(e){}"
+11:14:19  
+11:14:19  
+11:14:19  > sfra-boilerplate@2.3.0 postinstall /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:19  > npm run init
+11:14:19  
+11:14:19  
+11:14:19  > sfra-boilerplate@2.3.0 init /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:19  > npm run init:hooks && npm run init:config && npm run init:cartridges
+11:14:19  
+11:14:20  
+11:14:20  > sfra-boilerplate@2.3.0 init:hooks /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:20  > node ./utils/githooks/copy-hooks.js
+11:14:20  
+11:14:20  [GitHooks]:INFO: Installing "pre-commit"
+11:14:20  [GitHooks]:INFO: Installing "post-checkout"
+11:14:20  [GitHooks]:INFO: Installing "commit-msg"
+11:14:20  [GitHooks]:INFO: Installing "pre-push"
+11:14:20  
+11:14:20  > sfra-boilerplate@2.3.0 init:config /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:20  > node ./utils/helpers/init-dwjson.js
+11:14:20  
+11:14:20  [01:14:20] [init] Configuration file doesn't exist. Let's create initial configuration
+11:14:20  ? ----------------------------------------------
+11:14:20  
+11:14:20  Do you want use symlinks for linked repositories?
+11:14:20  
+11:14:20  IMPORTANT! Answer "yes" only in next cases:
+11:14:20      - quickly setup Boilerplate demo store on your sandbox(eg to show to client 
+11:14:20  on discovery)
+11:14:20      - check how Boilerplate works
+11:14:20      - contribute some fix to Boilerplate
+11:14:20      - you are doing onboarding labs
+11:14:20      - you are developer on Boilerplate project
+11:14:20  
+11:14:20  In all other cases you should answer "no" as for clients project should be used 
+11:14:20  approach without symlinks.
+11:14:20  
+11:14:20  See details how to setup repository for clients project 
+11:14:20  https://bitbucket.org/astoundcommerce/sfra-boilerplate/src/master/documentation/
+11:14:20  guides/teamlead/StartingProjectGuides.md (Use arrow keys)
+11:14:20  ❯ no 
+11:14:21    yes 
+11:14:21  > sfra-boilerplate@2.3.0 init:cartridges /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:21  > node ./utils/helpers/repoBuilder/symlink-linked-repo.js
+11:14:21  
+11:14:21  [01:14:21] [init] Symlinks are not enabled for this project
+11:14:23  npm WARN sfra-boilerplate@2.3.0 No repository field.
+11:14:23  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules/sticky-sidebar-v2/node_modules/rollup/node_modules/fsevents):
+11:14:23  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+11:14:23  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/sticky-sidebar-v2/node_modules/fsevents):
+11:14:23  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+11:14:23  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules/sticky-sidebar-v2/node_modules/mocha/node_modules/fsevents):
+11:14:23  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+11:14:23  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/glob-watcher/node_modules/fsevents):
+11:14:23  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+11:14:23  npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules/fsevents):
+11:14:23  npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+11:14:23  
+11:14:23  added 2864 packages from 1490 contributors and audited 2111 packages in 51.279s
+11:14:25  
+11:14:25  213 packages are looking for funding
+11:14:25    run `npm fund` for details
+11:14:25  
+11:14:25  found 22 vulnerabilities (8 moderate, 13 high, 1 critical)
+11:14:25    run `npm audit fix` to fix them, or `npm audit` for details
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] sh
+11:14:25  + grunt dw_npm_execute:default --project=goodwill
+11:14:27  
+11:14:27  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:14:27  Run "grunt help" to print a list of available taks.
+11:14:27  
+11:14:27   -- Initializing...
+11:14:27     * Loading build/goodwill.json... OK
+11:14:27     * Found target environment: default
+11:14:27     * >> Password encryption is disabled.
+11:14:27   -- Initialization OK
+11:14:27  
+11:14:27   -- Project: goodwill
+11:14:27   -- Version: undefined
+11:14:27   -- Target:  undefined
+11:14:27  
+11:14:27  
+11:14:27  Running "dw_npm_execute:default" (dw_npm_execute) task
+11:14:27   * Found NPM configuration for newco-code-repository
+11:14:27     - NPM install disabled.
+11:14:27     - Running: build:release
+11:14:27  
+11:14:27  Running "npm-command:newco-code-repository__build_release" (npm-command) task
+11:14:27  
+11:14:27  > sfra-boilerplate@2.3.0 build:release /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:27  > npm run build:meta && webpack --mode production --env production && npm run compile:assets && npm run compile:slots && npm run build:styleguide && npm run build:icons:preview
+11:14:27  
+11:14:28  
+11:14:28  > sfra-boilerplate@2.3.0 build:meta /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:14:28  > node ./utils/helpers/meta/metaCompilerRunner.js --copy-files
+11:14:28  
+11:14:28  [01:14:28] [Meta Compiler] Clean up compiled meta folder ./meta/compiled_meta
+11:14:28  [01:14:28] [Meta Compiler] Lookup meta files to compile...
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/preferences.xml
+11:14:28            meta/site_template_extension/link_avalara/preferences.xml
+11:14:28            meta/site_template_extension/link_paypal/preferences.xml
+11:14:28            meta/site_template_extension/sfra-pagedesigner/preferences.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/meta/system-objecttype-extensions.xml
+11:14:28            meta/site_template_extension/link_avalara/meta/system-objecttype-extensions.xml
+11:14:28            meta/site_template_extension/link_paypal/meta/system-objecttype-extensions.xml
+11:14:28            meta/site_template_extension/sfra-pagedesigner/meta/system-objecttype-extensions.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/jobs.xml
+11:14:28            meta/site_template_extension/link_paypal/jobs.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/services.xml
+11:14:28            meta/site_template_extension/link_avalara/services.xml
+11:14:28            meta/site_template_extension/link_paypal/services.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/meta/custom-objecttype-definitions.xml
+11:14:28            meta/site_template_extension/link_paypal/meta/custom-objecttype-definitions.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/sites/goodwill/payment-methods.xml
+11:14:28            meta/site_template_extension/link_paypal/sites/site/payment-methods.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/sites/goodwill/payment-processors.xml
+11:14:28            meta/site_template_extension/link_paypal/sites/site/payment-processors.xml
+11:14:28  [01:14:28] [Meta Compiler] Merge XML files:
+11:14:28  meta/site-data/sites/goodwill/preferences.xml
+11:14:28            meta/site_template_extension/link_paypal/sites/site/preferences.xml
+11:14:28  
+11:14:28  [01:14:28] [Meta Compiler] Error parse XML
+11:14:28  (node:32674) UnhandledPromiseRejectionWarning: Error: Unexpected close tag
+11:14:28  Line: 1703
+11:14:28  Column: 24
+11:14:28  Char: >
+11:14:28      at error (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/sax/lib/sax.js:651:10)
+11:14:28      at strictFail (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/sax/lib/sax.js:677:7)
+11:14:28      at closeTag (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/sax/lib/sax.js:871:9)
+11:14:28      at SAXParser.write (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/sax/lib/sax.js:1436:13)
+11:14:28      at Parser.exports.Parser.Parser.parseString (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/xml2js/lib/parser.js:323:31)
+11:14:28      at Parser.parseString (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/node_modules/xml2js/lib/parser.js:5:59)
+11:14:28      at /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/utils/helpers/meta/metaCompiler.js:64:16
+11:14:28      at new Promise (<anonymous>)
+11:14:28      at parseXml (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/utils/helpers/meta/metaCompiler.js:62:12)
+11:14:28      at readAndParseFiles (/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/utils/helpers/meta/metaCompiler.js:106:30)
+11:14:28  (Use `node --trace-warnings ...` to show where the warning was created)
+11:14:28  (node:32674) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+11:14:28  (node:32674) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+11:14:30  
+11:14:30  [01:14:29] [site] compiled_meta folder has no site.xml for goodwill. Check and run meta compiler "npm run build:meta:site". Used site_template folder as fallback
+11:14:30  [01:14:30] [Webpack] Compiling app_custom_core...
+11:14:30  [01:14:30] [Webpack] Compiling plugin_serviceworker_w...
+11:14:30  [01:14:30] [Webpack] Compiling app_custom_goodwill...
+11:15:02  [01:14:57] [Webpack] [emit] File service-worker.js (109.82kb) compiled in 26642ms
+11:15:02  [01:14:57] [Webpack] [emit] File assetsManifest.json (0.37kb) compiled in 26642ms
+11:15:02  [01:14:57] [Webpack] Compiled plugin_serviceworker_w successfully!
+11:15:02  Webpack Bundle Analyzer saved report to /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/cartridges/plugin_serviceworker_w/cartridge/static/default/js/report.html
+11:15:24  [01:15:24] [Webpack] [emit] File vendor~zxcvbn.bundle.js (799.47kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File app_custom_core.js (284.40kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File vendor~intlTelInputPlugin.bundle.js (277.13kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File common.css (94.01kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File checkout.css (89.81kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File account.css (65.65kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File vendor~imaskPlugin.bundle.js (59.71kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File checkout.widgets.bundle.js (56.70kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File common-critical.css (51.40kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File plp.css (45.60kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File pdp.css (40.76kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File vendor~photoswipe.bundle.js (40.30kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File header.widgets.bundle.js (40.04kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File product.widgets.bundle.js (36.35kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File static-pages.css (31.85kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File vendor~dynamic-render.bundle.js (31.26kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File cart.css (25.09kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File search.widgets.bundle.js (24.69kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File store-locator.css (21.99kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File common~account.widgets~checkout.widgets.bundle.js (20.51kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File vendor~cleave.bundle.js (19.78kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File cart.widgets.bundle.js (16.82kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File homepage.widgets.bundle.js (12.08kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File guide.css (11.68kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File account.widgets.bundle.js (11.08kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File fetch.bundle.js (10.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File assetsManifest.json (8.45kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File hp.css (7.99kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File toolkit.bundle.js (7.36kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File smoothscroll.bundle.js (3.93kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File errors.css (3.32kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File content.widgets.bundle.js (1.03kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File orderconfirmation.widgets.bundle.js (0.89kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File simplecountdown.bundle.js (0.65kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File clp.css (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File account.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File cart.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File checkout.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File clp.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File common-critical.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File common.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File errors.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File guide.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File hp.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File pdp.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File plp.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File static-pages.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] [emit] File store-locator.js (0.00kb) compiled in 53229ms
+11:15:24  [01:15:24] [Webpack] Compiled app_custom_core successfully!
+11:15:24  
+11:15:24  [01:15:24] [Webpack] Compiled with warnings.
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:5659) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:55482) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:57146) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:63743) autoprefixer: end value has mixed support, consider using flex-end instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:21904) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:30212) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:22519) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:6205) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:24  Warning
+11:15:24  
+11:15:24  (1:19622) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:24  
+11:15:24  [01:15:24] [Webpack] AssetsOverSizeLimitWarning: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+11:15:24  This can impact web performance.
+11:15:24  Assets: 
+11:15:24    app_custom_core.js (284 KiB)
+11:15:24    vendor~zxcvbn.bundle.js (799 KiB)
+11:15:24    vendor~intlTelInputPlugin.bundle.js (277 KiB)
+11:15:24  
+11:15:24  [01:15:24] [Webpack] EntrypointsOverSizeLimitWarning: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+11:15:24  Entrypoints:
+11:15:24    app_custom_core (284 KiB)
+11:15:24        app_custom_core.js
+11:15:26  Webpack Bundle Analyzer saved report to /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/cartridges/app_custom_core/cartridge/static/default/report.html
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~zxcvbn.bundle.js (799.47kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File app_custom_goodwill.js (411.65kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~intlTelInputPlugin.bundle.js (277.13kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File common-goodwill.css (96.73kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File checkout-goodwill.css (90.86kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File account-goodwill.css (65.65kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~imaskPlugin.bundle.js (59.72kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File checkout.widgets.bundle.js (56.70kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File page_designer.css (53.68kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File common-critical-goodwill.css (53.04kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File plp-goodwill.css (45.60kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File pdp-goodwill.css (40.76kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~photoswipe.bundle.js (40.30kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File header.widgets.bundle.js (37.42kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File static-pages-goodwill.css (31.85kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~dynamic-render.bundle.js (31.27kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File product.widgets.bundle.js (30.56kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File cart-goodwill.css (26.14kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File search.widgets.bundle.js (25.83kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File checkout.gdw.bundle.js (23.72kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File store-locator-goodwill.css (21.99kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File checkout.paypal.bundle.js (20.81kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File common~account.widgets~checkout.widgets.bundle.js (20.52kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File search.gdw.bundle.js (20.19kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~cleave.bundle.js (19.78kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File storelocator.widgets.bundle.js (18.37kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File cart.widgets.bundle.js (16.82kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File account.gdw.bundle.js (16.48kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File assetsManifest.json (14.55kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File product.gdw.bundle.js (14.17kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~storelocator.widgets.bundle.js (14.15kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File cart.paypal.bundle.js (12.83kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File salesforce.payment.widgets.bundle.js (12.13kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File homepage.widgets.bundle.js (12.08kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File wishlist.wishlist.bundle.js (11.86kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File guide-goodwill.css (11.68kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File account.widgets.bundle.js (11.08kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File vendor~sticky-sidebar.bundle.js (10.13kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File fetch.bundle.js (10.01kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File hp-goodwill.css (7.99kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File toolkit.bundle.js (7.36kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File cart.gdw.bundle.js (6.14kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File account.paypal.bundle.js (5.71kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File header.gdw.bundle.js (5.68kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File donation.gdw.bundle.js (5.30kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File checkout.gdw.applepay.bundle.js (4.34kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File smoothscroll.bundle.js (3.93kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File wishlist.header.bundle.js (3.77kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File global.page_designer.bundle.js (3.36kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File errors-goodwill.css (3.32kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File wishlist.css (2.94kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File resize-sensor.bundle.js (2.49kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File gdw.page_designer.bundle.js (2.15kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File content.gdw.bundle.js (1.88kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File user_pack.css (1.69kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File wishlist.cart.bundle.js (1.29kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File content.widgets.bundle.js (1.03kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File orderconfirmation.widgets.bundle.js (0.89kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File wishlist.gdw.bundle.js (0.85kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File simplecountdown.bundle.js (0.65kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File clp-goodwill.css (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File account-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File cart-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File checkout-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File clp-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File common-critical-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File common-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File errors-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File guide-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File hp-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File page_designer.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File pdp-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File plp-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File static-pages-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File store-locator-goodwill.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File user_pack.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] [emit] File wishlist.js (0.00kb) compiled in 56406ms
+11:15:27  [01:15:27] [Webpack] Compiled app_custom_goodwill successfully!
+11:15:27  
+11:15:27  [01:15:27] [Webpack] Compiled with warnings.
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:5659) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:55482) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:57146) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:63743) autoprefixer: end value has mixed support, consider using flex-end instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:21904) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:30212) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:22519) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:6205) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] ModuleWarning: Module Warning (from ./node_modules/postcss-loader/dist/cjs.js):
+11:15:27  Warning
+11:15:27  
+11:15:27  (1:19622) autoprefixer: start value has mixed support, consider using flex-start instead
+11:15:27  
+11:15:27  [01:15:27] [Webpack] AssetsOverSizeLimitWarning: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+11:15:27  This can impact web performance.
+11:15:27  Assets: 
+11:15:27    app_custom_goodwill.js (412 KiB)
+11:15:27    vendor~zxcvbn.bundle.js (799 KiB)
+11:15:27    vendor~intlTelInputPlugin.bundle.js (277 KiB)
+11:15:27  
+11:15:27  [01:15:27] [Webpack] EntrypointsOverSizeLimitWarning: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+11:15:27  Entrypoints:
+11:15:27    app_custom_goodwill (412 KiB)
+11:15:27        app_custom_goodwill.js
+11:15:29  Webpack Bundle Analyzer saved report to /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/cartridges/app_custom_goodwill/cartridge/static/default/report.html
+11:15:29  
+11:15:29  > sfra-boilerplate@2.3.0 compile:assets /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:15:29  > node utils/helpers/assetsCompiler/index.js
+11:15:29  
+11:15:29  [01:15:29] [assetsCompiler] Start compile assets/folders to '/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/meta/site-data/libraries/goodwill-content/library.xml' 
+11:15:29  [01:15:29] [assetsCompiler] 176 assets, 34 folders successfully compiled! for '/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/meta/site-data/libraries/goodwill-content/library.xml'
+11:15:30  
+11:15:30  > sfra-boilerplate@2.3.0 compile:slots /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:15:30  > node utils/helpers/assetsCompiler/index.js --slots
+11:15:30  
+11:15:30  [01:15:30] [assetsCompiler] Start compile slots/folders to '/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/meta/site-data/sites/goodwill/slots.xml'
+11:15:30  [01:15:30] [assetsCompiler] 32 slots, 16 category/folders successfully compiled! for '/opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository/meta/site-data/sites/goodwill/slots.xml'
+11:15:30  
+11:15:30  > sfra-boilerplate@2.3.0 build:styleguide /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:15:30  > atlas-guide --build=./cartridges/app_custom_core/cartridge/client/default/scss/.atlasrc.json
+11:15:30  
+11:15:33  
+11:15:33  > sfra-boilerplate@2.3.0 build:icons:preview /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/exports/goodwill/newco-code-repository
+11:15:33  > node utils/helpers/icons/generateIconsPreview.js
+11:15:33  
+11:15:33  [01:15:33] [iconsPreview] SVG preview template updated!
+11:15:33  
+11:15:33  Done, without errors.
+11:15:33  
+11:15:33  
+11:15:33  Execution Time (2023-04-10 01:14:26 UTC-7)
+11:15:33  loading tasks                    1.2s  ▇ 2%
+11:15:33  npm-command:ne...build_release  1m 6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 98%
+11:15:33  Total 1m 7.2s
+11:15:33  
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Packaging)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+11:15:34  + grunt ast_zip_code --project=goodwill --build_version=23.04.11.0-238
+11:15:35  
+11:15:35  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:15:35  Run "grunt help" to print a list of available taks.
+11:15:35  
+11:15:35   -- Initializing...
+11:15:35     * Loading build/goodwill.json... OK
+11:15:35     * Found target environment: default
+11:15:35     * >> Password encryption is disabled.
+11:15:35   -- Initialization OK
+11:15:35  
+11:15:35   -- Project: goodwill
+11:15:35   -- Version: 23.04.11.0-238
+11:15:35   -- Target:  undefined
+11:15:35  
+11:15:35  
+11:15:35  Running "ast_dw_copy:code" (ast_dw_copy) task
+11:15:35     ** Repository: newco-code-repository
+11:15:35      - Copying configured cartridges: 
+11:15:35        - app_custom_core OK
+11:15:35        - app_custom_goodwill OK
+11:15:35        - app_page_designer_ext OK
+11:15:35        - app_page_designer_w OK
+11:15:35        - app_storefront_base OK
+11:15:35        - app_storefront_widgets OK
+11:15:35        - int_shipperhq_sfra OK
+11:15:35        - bc_job_components OK
+11:15:35        - bm_app_page_designer_ext OK
+11:15:35        - bm_app_page_designer_w OK
+11:15:35        - bm_app_storefront_base OK
+11:15:35        - bm_avatax OK
+11:15:35        - bm_ckeditor OK
+11:15:35        - bm_paypal OK
+11:15:35        - bm_paypal_configuration OK
+11:15:35        - bm_summernote_editor OK
+11:15:35        - int_avatax_sfra OK
+11:15:35        - int_avatax_svcclient OK
+11:15:35        - int_b2ccrmsync OK
+11:15:35        - int_dis_w OK
+11:15:35        - int_handlerframework OK
+11:15:35        - int_ketch_w OK
+11:15:35        - int_marketing_cloud OK
+11:15:35        - int_monitoring OK
+11:15:35        - int_gtm_w OK
+11:15:35        - int_paypal OK
+11:15:35        - lib_productlist OK
+11:15:35        - modules OK
+11:15:35        - plugin_commercepayments OK
+11:15:35        - plugin_b2ccrmsync OK
+11:15:35        - plugin_datadownload OK
+11:15:35        - plugin_giftcertificates OK
+11:15:35        - plugin_marketing_cloud OK
+11:15:35        - plugin_ordermanagement OK
+11:15:35        - plugin_serviceworker_w OK
+11:15:35        - plugin_sitemap OK
+11:15:35        - plugin_storelocator_w OK
+11:15:35        - plugin_wishlists_w OK
+11:15:35  
+11:15:35  Running "copy:newco-code-repository" (copy) task
+11:15:38  Created 1143 directories, copied 4407 files
+11:15:38  
+11:15:38  Running "dw_insert_buildinfo:default" (dw_insert_buildinfo) task
+11:15:38  Build info insertion disabled. Skipping.
+11:15:38  
+11:15:38  Running "dw_optimize" task
+11:15:38  >> Javascript optimization disabled - skipping.
+11:15:38  >> CSS optimization disabled - skipping.
+11:15:38  
+11:15:38  Running "dw_merge:default" (dw_merge) task
+11:15:38  >> Static files concatenation is disabled. Skipping task.
+11:15:38  
+11:15:38  Running "ast_obfuscator" task
+11:15:38  >> Javascript obfuscation disabled. Skipping obfuscation.
+11:15:38  
+11:15:38  Running "dw_compress:code" (dw_compress) task
+11:15:38    * Creating archive:  output/goodwill/code/23.04.11.0-238.zip
+11:15:44  >> Successfully zipped 5447 files.
+11:15:45  
+11:15:45  Done, without errors.
+11:15:45  
+11:15:45  
+11:15:45  Execution Time (2023-04-10 01:15:34 UTC-7)
+11:15:45  loading tasks               1.2s  ▇▇▇▇▇ 12%
+11:15:45  copy:newco-code-repository  2.3s  ▇▇▇▇▇▇▇▇ 22%
+11:15:45  dw_compress:code            6.7s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 66%
+11:15:45  Total 10.3s
+11:15:45  
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Upload Code)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] maskPasswords
+[Pipeline] {
+[Pipeline] sh
+11:15:45  + grunt upload --project=goodwill --webdav.server=staging-na01-newco.demandware.net --build_version=23.04.11.0-238 --two_factor=true --two_factor.password=******** --ocapi_client_id=e9e3c129-8386-4e77-97e1-6da0a03787b1 --ocapi_client_secret=********
+11:15:47  (node:492) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+11:15:47  (Use `node --trace-warnings ...` to show where the warning was created)
+[Pipeline] }
+[Pipeline] // maskPasswords
+[Pipeline] sh
+11:16:14  + cat function_log
+11:16:14  
+11:16:14  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:16:14  Run "grunt help" to print a list of available taks.
+11:16:14  
+11:16:14   -- Initializing...
+11:16:14     * Loading build/goodwill.json... OK
+11:16:14     * Found target environment: default
+11:16:14     * >> Password encryption is disabled.
+11:16:14     * Two factor auth enabled. Certificate file: certs/goodwill/cert.p12
+11:16:14   -- Initialization OK
+11:16:14  
+11:16:14   -- Project: goodwill
+11:16:14   -- Version: 23.04.11.0-238
+11:16:14   -- Target:  staging-na01-newco.demandware.net
+11:16:14  
+11:16:14  
+11:16:14  Running "ast_upload:code" (ast_upload) task
+11:16:14   -- Found OCAPI credentials.
+11:16:14   -- OCAPI Module (sfcc-ci) loaded successfully.
+11:16:14  >> Running Upload via API
+11:16:14  
+11:16:14  Running "ast_api_upload_code" task
+11:16:14  -- Authorization successful
+11:16:14  >> Code Version has been deployed.
+11:16:14  
+11:16:14  Done, without errors.
+11:16:14  
+11:16:14  
+11:16:14  Execution Time (2023-04-10 01:15:45 UTC-7)
+11:16:14  loading tasks         1.2s  ▇▇ 4%
+11:16:14  ast_upload:code      314ms  ▇ 1%
+11:16:14  ast_api_upload_code  26.5s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 94%
+11:16:14  Total 28s
+11:16:14  
+11:16:14  + rm -f function_log
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Activate Code)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] maskPasswords
+[Pipeline] {
+[Pipeline] sh
+11:16:15  + grunt activate --project=goodwill --webdav.server=staging-na01-newco.demandware.net --build_version=23.04.11.0-238 --ocapi_client_id=e9e3c129-8386-4e77-97e1-6da0a03787b1 --ocapi_client_secret=********
+11:16:17  (node:538) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+11:16:17  (Use `node --trace-warnings ...` to show where the warning was created)
+[Pipeline] }
+[Pipeline] // maskPasswords
+[Pipeline] sh
+11:16:32  + cat function_log
+11:16:32  
+11:16:32  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:16:32  Run "grunt help" to print a list of available taks.
+11:16:32  
+11:16:32   -- Initializing...
+11:16:32     * Loading build/goodwill.json... OK
+11:16:32     * Found target environment: default
+11:16:32     * >> Password encryption is disabled.
+11:16:32   -- Initialization OK
+11:16:32  
+11:16:32   -- Project: goodwill
+11:16:32   -- Version: 23.04.11.0-238
+11:16:32   -- Target:  staging-na01-newco.demandware.net
+11:16:32  
+11:16:32  
+11:16:32  Running "dw_activate:code" (dw_activate) task
+11:16:32   -- Found OCAPI credentials.
+11:16:32   -- OCAPI Module (sfcc-ci) loaded successfully.
+11:16:32  >> Running OCAPI Code Activation
+11:16:32  
+11:16:32  Running "dw_api_activate_code" task
+11:16:32  -- Authorization successful
+11:16:32  >> Code version active.
+11:16:32  
+11:16:32  Done, without errors.
+11:16:32  
+11:16:32  
+11:16:32  Execution Time (2023-04-10 01:16:15 UTC-7)
+11:16:32  loading tasks          1.2s  ▇▇▇▇ 8%
+11:16:32  dw_activate:code      168ms  ▇ 1%
+11:16:32  dw_api_activate_code  13.3s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 91%
+11:16:32  Total 14.7s
+11:16:32  
+11:16:32  + rm -f function_log
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Import Site)
+Stage "Import Site" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Import Meta)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] maskPasswords
+[Pipeline] {
+[Pipeline] sh
+11:16:32  + grunt importMeta --project=goodwill --webdav.server=staging-na01-newco.demandware.net --build_version=23.04.11.0-238 --two_factor=true --two_factor.password=******** --ocapi_client_id=e9e3c129-8386-4e77-97e1-6da0a03787b1 --ocapi_client_secret=********
+11:16:34  (node:577) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+11:16:34  (Use `node --trace-warnings ...` to show where the warning was created)
+[Pipeline] }
+[Pipeline] // maskPasswords
+[Pipeline] sh
+11:16:47  + cat function_log
+11:16:47  
+11:16:47  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:16:47  Run "grunt help" to print a list of available taks.
+11:16:47  
+11:16:47   -- Initializing...
+11:16:47     * Loading build/goodwill.json... OK
+11:16:47     * Found target environment: default
+11:16:47     * >> Password encryption is disabled.
+11:16:47     * Two factor auth enabled. Certificate file: certs/goodwill/cert.p12
+11:16:47   -- Initialization OK
+11:16:47  
+11:16:47   -- Project: goodwill
+11:16:47   -- Version: 23.04.11.0-238
+11:16:47   -- Target:  staging-na01-newco.demandware.net
+11:16:47  
+11:16:47  
+11:16:47  Running "ast_dw_copy:metaImport" (ast_dw_copy) task
+11:16:47      - Copying Site import data.
+11:16:47        - Init data source: exports/goodwill/newco-code-repository/meta/compiled_meta
+11:16:47  
+11:16:47  Running "copy:site_meta_newco-code-repository" (copy) task
+11:16:47  Copied 2 files
+11:16:47  
+11:16:47  Running "dw_prepare_site_import:default" (dw_prepare_site_import) task
+11:16:47   -- Collecting data for Site Initialization
+11:16:47   -- Collecting Demo Data.
+11:16:47   -- No environment-specific configurations found for default
+11:16:47  
+11:16:47  Running "dw_compress:meta" (dw_compress) task
+11:16:47    * Creating archive:  output/goodwill/site_import/meta.zip
+11:16:47  >> Successfully zipped 2 files.
+11:16:47  
+11:16:47  Running "ast_upload:meta" (ast_upload) task
+11:16:47   -- Found OCAPI credentials.
+11:16:47   -- OCAPI Module (sfcc-ci) loaded successfully.
+11:16:47  >> Running Upload via API
+11:16:47  
+11:16:47  Running "ast_api_upload:meta" (ast_api_upload) task
+11:16:47  -- Authorization successful
+11:16:47  -- Starting file upload for output/goodwill/site_import/meta.zip
+11:16:47  >> Archive upload has been completed.
+11:16:47  
+11:16:47  Running "dw_import:meta" (dw_import) task
+11:16:47   -- Found OCAPI credentials.
+11:16:47   -- OCAPI Module (sfcc-ci) loaded successfully.
+11:16:47  >> Running OCAPI Site Import
+11:16:47  
+11:16:47  Running "dw_api_import:meta" (dw_api_import) task
+11:16:47  -- Authorization successful
+11:16:47   -- Starting import Job for meta.zip
+11:16:47    * Job started. Execution ID: 8081434
+11:16:47  -- Authorization successful
+11:16:47    * Job still running...
+11:16:47  -- Authorization successful
+11:16:47  >> Job finished! Status: finished
+11:16:47  
+11:16:47  Done, without errors.
+11:16:47  
+11:16:47  
+11:16:47  Execution Time (2023-04-10 01:16:33 UTC-7)
+11:16:47  loading tasks         1.2s  ▇▇▇▇ 9%
+11:16:47  ast_upload:meta      161ms  ▇ 1%
+11:16:47  ast_api_upload:meta  531ms  ▇▇ 4%
+11:16:47  dw_api_import:meta   11.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 86%
+11:16:47  Total 13.6s
+11:16:47  
+11:16:47  + rm -f function_log
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Update JIRA tickets)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withCredentials
+11:16:47  Masking supported pattern matches of $ast_jira_username or $ast_jira_password
+[Pipeline] {
+[Pipeline] sh
+11:16:47  + grunt ast_jira_process_issues --project=goodwill --build_version=23.04.11.0 --jira_host_protocol=https --jira_host=jira.ontrq.com --jira_username=**** '--jira_password=****' --jira_project_id=GDW '--jira_transition_name=Ready for QA' --jira_add_resolved_to_release=true '--jira_ready_for_deploy_jql=assignee in (a.samoilov, d.bunak, v.strekha, y.zhemchuzhnykov, d.mytrovka, k.zhukov) AND status in (Resolved, Done) and resolution in (Fixed) and type not in (Risk, Question, Issue, Incident, Dependency, Epic)' '--jira_fix_version_jql=status!=Closed' --jira_transition_resolved=true --jira_assign_trans_to_reporter=false --jira_fix_version=23.04.11.0 '--jira_transition_comment=As part of Release this ticket has been deployed to Staging environment and Ready for Testing after 15 min (activation time). Build Version: 23.04.11.0' --jira_add_build_label=false --jira_build_label=GDW-23.04.11.0 --jira_default_assignee=o.khymka
+11:16:49  
+11:16:49  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:16:49  Run "grunt help" to print a list of available taks.
+11:16:49  
+11:16:49   -- Initializing...
+11:16:49     * Loading build/goodwill.json... OK
+11:16:49     * Found target environment: default
+11:16:49     * >> Password encryption is disabled.
+11:16:49   -- Initialization OK
+11:16:49  
+11:16:49   -- Project: goodwill
+11:16:49   -- Version: 23.04.11.0
+11:16:49   -- Target:  undefined
+11:16:49  
+11:16:49  
+11:16:49  Running "ast_jira_process_issues" task
+11:16:49  (node:613) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+11:16:49  (Use `node --trace-warnings ...` to show where the warning was created)
+11:16:49  Version 23.04.11.0 has been found in project GDW
+11:16:49  2 issues ready for deployment found
+11:16:51  2 issues was added to version 23.04.11.0. 0 was already in it.
+11:16:51  8 issues in version found
+11:16:51  8 issues in version found
+11:16:52  
+11:16:52  Done, without errors.
+11:16:52  
+11:16:52  
+11:16:52  Execution Time (2023-04-10 01:16:48 UTC-7)
+11:16:52  loading tasks            1.2s  ▇▇▇▇▇▇▇▇▇▇▇ 29%
+11:16:52  ast_jira_process_issues    3s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 71%
+11:16:52  Total 4.3s
+11:16:52  
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Generate Report & Send Email)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+11:16:52  + grunt ast_prepare_notes --project=goodwill --build_version=23.04.11.0 --release_notes_target=staging
+11:16:54  
+11:16:54  ******************** Salesforce Commerce Cloud Build Suite ********************
+11:16:54  Run "grunt help" to print a list of available taks.
+11:16:54  
+11:16:54   -- Initializing...
+11:16:54     * Loading build/goodwill.json... OK
+11:16:54     * Found target environment: default
+11:16:54     * >> Password encryption is disabled.
+11:16:54   -- Initialization OK
+11:16:54  
+11:16:54   -- Project: goodwill
+11:16:54   -- Version: 23.04.11.0
+11:16:54   -- Target:  undefined
+11:16:54  
+11:16:54  
+11:16:54  Running "ast_notes_data_preparation" task
+11:16:54  
+11:16:54  Running "mustache_render:renderNotes" (mustache_render) task
+11:16:54  Output output/goodwill/notes-23.04.11.0.html:
+11:16:54  >> 2-key object into templates/goodwill/staging-notesTemplate.mustache from JavaScript code
+11:16:54  
+11:16:54  >> Files successfully written: 1
+11:16:54  
+11:16:54  Running "inlinecss:releaseNotes" (inlinecss) task
+11:16:54  filepath: output/goodwill/notes-23.04.11.0.html
+11:16:54  File "output/goodwill/notes-23.04.11.0.html" created.
+11:16:54  
+11:16:54  Done, without errors.
+11:16:54  
+11:16:54  
+11:16:54  Execution Time (2023-04-10 01:16:53 UTC-7)
+11:16:54  loading tasks                1.2s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 93%
+11:16:54  mustache_render:renderNotes  29ms  ▇ 2%
+11:16:54  inlinecss:releaseNotes       55ms  ▇▇ 4%
+11:16:54  Total 1.3s
+11:16:54  
+[Pipeline] emailext
+11:16:54  Sending email to: bethmonda@gmail.com beth.monda@goodwillfinds.com john.kachurick@goodwillfinds.com a.samoilov@astoundcommerce.com d.bunak@astoundcommerce.com d.mytrovka@astoundcommerce.com o.khymka@astoundcommerce.com p.maliarchuk@astoundcommerce.com v.strekha@astoundcommerce.com b.bhatt@astoundcommerce.com s.goel@astoundcommerce.com v.jani@astoundcommerce.com a.vhora@astoundcommerce.com c.corciega@astoundcommerce.com d.bandurak@astoundcommerce.com ca.rodgers@astoundcommerce.com Nicolas.genest@goodwillfinds.com joe.nguyen@goodwillfinds.com
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] slackSend
+11:16:54  Slack Send Pipeline step running, values are - baseUrl: https://astoundcommerce.slack.com/services/hooks/jenkins-ci/, teamDomain: <empty>, channel: gdw-build-notification, color: good, botUser: false, tokenCredentialId: <empty>, notifyCommitters: false, iconEmoji: <empty>, username: <empty>, timestamp: <empty>
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] dir
+11:16:55  Running in /opt/jenkins/workspace/SFCC/GDW/GDW-Staging-Build/output
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] echo
+11:16:55  output directory cleaned successfully
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+
+[Pipeline] // ansiColor
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
