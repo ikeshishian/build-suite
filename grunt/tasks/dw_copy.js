@@ -13,6 +13,7 @@ function configureSiteImport(grunt, dependency, settings) {
     // Default paths
     var siteInitPath = 'sites/site_template';
     var siteDemoPath = 'sites/site_demo';
+    var siteMetaPath = 'meta/compiled_meta';
     var environmentPath = 'sites/config';
 
     // Base path of local checkout
@@ -22,12 +23,14 @@ function configureSiteImport(grunt, dependency, settings) {
     if (dependency.siteImport) {
         siteInitPath = dependency.siteImport.initPath || siteInitPath;
         siteDemoPath = dependency.siteImport.demoPath || siteDemoPath;
+        siteMetaPath = dependency.siteImport.metaPath || siteMetaPath;
         environmentPath = dependency.siteImport.environmentPath || environmentPath;
     }
 
     // Build complete relative site import paths
     var initSourceDir = basePath + dependency.id + '/' + siteInitPath;
     var demoSourceDir = basePath + dependency.id + '/' + siteDemoPath;
+    var metaSourceDir = basePath + dependency.id + '/' + siteMetaPath;
     var environmentSourceDir = basePath + dependency.id + '/' + environmentPath;
 
     // Handle local repository
@@ -36,6 +39,7 @@ function configureSiteImport(grunt, dependency, settings) {
 
         initSourceDir = path.normalize(baseDir + '/' + siteInitPath);
         demoSourceDir = path.normalize(baseDir + '/' + siteDemoPath);
+        metaSourceDir = path.normalize(baseDir + '/' + siteMetaPath);
         environmentSourceDir = path.normalize(baseDir + '/' + environmentPath);
     }
 
@@ -50,6 +54,7 @@ function configureSiteImport(grunt, dependency, settings) {
     }
 
     grunt.log.writeln('      - Demo data source: ' + demoSourceDir);
+    grunt.log.writeln('      - Meta data source: ' + metaSourceDir);
     grunt.log.writeln('      - Instance config source: ' + environmentSourceDir);
 
     grunt.config('copy.site_init_' + dependency.id, {
@@ -68,6 +73,14 @@ function configureSiteImport(grunt, dependency, settings) {
         dot: false
     });
 
+    grunt.config('copy.site_meta_' + dependency.id, {
+        cwd: metaSourceDir,
+        src: 'meta/*',
+        dest: grunt.config('dw_properties').folders.site + 'site_meta',
+        expand: true,
+        dot: false
+    });
+
     grunt.config('copy.env_config_' + dependency.id, {
         cwd: environmentSourceDir,
         src: '**/*',
@@ -78,6 +91,7 @@ function configureSiteImport(grunt, dependency, settings) {
 
     grunt.task.run('copy:site_init_' + dependency.id);
     grunt.task.run('copy:site_demo_' + dependency.id);
+    grunt.task.run('copy:site_meta_' + dependency.id);
     grunt.task.run('copy:env_config_' + dependency.id);
 }
 

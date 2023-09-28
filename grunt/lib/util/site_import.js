@@ -213,6 +213,16 @@ module.exports = (function (grunt) {
     }
 
     /**
+     * Copy meta data into site-import output folder.
+     */
+    function copySiteMetaData() {
+        var sourcePath = getImportPath() + 'site_meta';
+
+        grunt.log.verbose.writeln('  - Source: ' + sourcePath);
+        copyConfiguration(sourcePath);
+    }
+
+    /**
      * Copy Environment-based Site Import files
      * @public
      */
@@ -261,6 +271,7 @@ module.exports = (function (grunt) {
     return {
         copySiteDemoData: copySiteDemoData,
         copySiteInitData: copySiteInitData,
+        copySiteMetaData: copySiteMetaData,
         cleanup: cleanup,
         checkForFiles: checkForFiles,
         updateData: updateData,

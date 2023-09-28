@@ -31,7 +31,7 @@ initDemoSite:
 - 'dw_upload:site'
 - 'dw_import:site'
 importMeta:
-- 'dw_prepare_site_import:default'
+- 'dw_prepare_site_import:meta'
 - 'dw_compress:meta'
 - 'dw_upload:meta'
 - 'dw_import:meta'
@@ -61,3 +61,6 @@ watch:
 - 'watch'
 default:
 - 'help'
+gdw:
+- 'copy:meta'
+

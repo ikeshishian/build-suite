@@ -29,6 +29,12 @@ module.exports = function (grunt) {
             siteImport.copySiteDemoData();
         }
 
+        // Import meta
+        if (options.importMeta) {
+            grunt.log.writeln(' -- Collecting Meta Data.');
+            siteImport.copySiteMetaData();
+        }
+
         // Instance-specific import and application of eventually configured replacement
         var instanceConfig = loadInstanceConfig(options.targetEnv);
 

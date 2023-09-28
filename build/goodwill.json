@@ -1,0 +1,74 @@
+{
+  "dependencies": [
+    {
+      "repository": {
+        "url": "git@bitbucket.org:newco-ecommerce/newco-code-repository.git",
+        "type": "git",
+        "branch" : "release/23.09.15.0"
+      },
+      "source": {
+        "path": "cartridges"
+      },
+      "npm": {
+        "install": true,
+        "scripts": [
+          "build:release"
+        ]
+      },
+      "siteImport": {
+        "enabled": "true",
+        "sites": ["goodwill"],
+        "initPath": "sites/site_template",
+        "demoPath": "sites/site_demo",
+        "metaPath": "meta/compiled_meta",
+        "environmentPath": "sites/config"
+      }
+    }
+  ],
+
+  "environments": {
+    "bgvz-002": {
+      "server": "bgvz-002.dx.commercecloud.salesforce.com",
+      "username" : "igor.keshishian@goodwillfinds.com",
+      "password": "t8kdrXdL61E_V3EbHvQh6AbM+nVpqS96jg==",
+      "client_id": "fe7677f0-29db-432b-9227-8e866c87de84",
+      "client_secret": "t8kdrXdL61E_pdQTSBCFvaMz0u30O00gNw=="
+    },
+    "staging": {
+      "server": "staging-na01-newco.demandware.net",
+      "username" : "igor.keshishian@goodwillfinds.com",
+      "password": "t8kdrXdL61E_V3EbHvQh6AbM+nVpqS96jg==",
+      "client_id": "e9e3c129-8386-4e77-97e1-6da0a03787b1",
+      "client_secret": "t8kdrXdL61E_la6im9C2y0EM7049o0zKSI4NDztP0B6L",
+      "two_factor": {
+        "enabled": "true",
+        "cert": "certificate/gwf-intern-deploy.p12",
+        "password": "t8kdrXdL61E_lCdItIfntbNKTzKCB9enTMAmrK3PlBc8",
+        "url": "cert.staging.na01.newco.demandware.net"
+      }
+    }
+  },
+
+  "settings": {
+    "project": {
+      "name": "goodwill",
+      "version": "23.09.15.0",
+      "build": "252"
+    },
+    "optimize": {
+      "postcss": false,
+      "browserify": false,
+      "js": false,
+      "css": false,
+      "concatenate": true
+    },
+    "siteImport": {
+      "enabled": true,
+      "filenames": {
+        "init": "build-suite-site-template",
+        "meta": "build-suite-metadata",
+        "content": "previously-uploaded-content-archive"
+      }
+    }
+  }
+}

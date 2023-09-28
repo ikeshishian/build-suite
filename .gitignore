@@ -2,6 +2,7 @@
 output
 exports
 node_modules
+certificate
 
 #Exclude IDE related project configurations
 .project
@@ -14,3 +15,4 @@ build/*
 !build/config.json.*
 !build/sitegenesis-sample.*
 !build/sfra-sample.*
+!build/goodwill.json

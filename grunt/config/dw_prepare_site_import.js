@@ -20,6 +20,13 @@ module.exports = function () {
             options: {
                 importDemo: true
             }
+        },
+        meta: {
+            options: {
+                importInit: false,
+                importDemo: false,
+                importMeta: true
+            }
         }
     };
 };
