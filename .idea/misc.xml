@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="IntellijSFCCConnectionSettings">
+    <option name="json" value="{&#10;  &quot;source&quot;: [&#10;    {&#10;      &quot;isEmpty&quot;: false,&#10;      &quot;id&quot;: &quot;7ef46f7a-9751-4ddb-9579-37cbaca575ae-370&quot;,&#10;      &quot;hostname&quot;: &quot;&quot;,&#10;      &quot;username&quot;: &quot;&quot;,&#10;      &quot;password&quot;: &quot;&quot;,&#10;      &quot;useLowerCaseUsername&quot;: false,&#10;      &quot;useOcapi&quot;: false,&#10;      &quot;useOcapiBMAuth&quot;: false,&#10;      &quot;ocapiVersion&quot;: &quot;20_2&quot;,&#10;      &quot;client-id&quot;: &quot;&quot;,&#10;      &quot;client-secret&quot;: &quot;&quot;,&#10;      &quot;version&quot;: &quot;version1&quot;,&#10;      &quot;useCertificate&quot;: false,&#10;      &quot;autoUpload&quot;: false,&#10;      &quot;malformed&quot;: false,&#10;      &quot;connected&quot;: false,&#10;      &quot;configs&quot;: [],&#10;      &quot;groupUUID&quot;: &quot;&quot;,&#10;      &quot;groupName&quot;: &quot;&quot;,&#10;      &quot;isGroup&quot;: false,&#10;      &quot;groupConnections&quot;: [],&#10;      &quot;accessKeys&quot;: {},&#10;      &quot;filePath&quot;: &quot;C:/Users/Igor/Documents/NewCo eCommerce/build-suite/exports/goodwill/newco-code-repository/dw.json&quot;&#10;    }&#10;  ]&#10;}" />
+    <option name="sourceScanned" value="true" />
+  </component>
+  <component name="IntellijSFCCDeploymentSettings">
+    <option name="json" value="{&#10;  &quot;isFullCodeVersionCleanup&quot;: false,&#10;  &quot;tasks&quot;: [],&#10;  &quot;multiInstancePair&quot;: []&#10;}" />
+  </component>
+  <component name="IntellijSFCCFileSystemListener">
+    <option name="loaded" value="true" />
+  </component>
+  <component name="IntellijSFCCSiteScopeSettings">
+    <option name="json" value="{&#10;  &quot;isGlobal&quot;: false,&#10;  &quot;site&quot;: &quot;Goodwill&quot;,&#10;  &quot;siteId&quot;: &quot;goodwill&quot;,&#10;  &quot;cartridges&quot;: &quot;app_custom_goodwill:app_custom_core:app_page_designer_ext:app_page_designer_w:int_vwo_plugin:int_talkable:int_avatax_svcclient:int_b2ccrmsync:int_dis_w:int_ketch_w:int_gtm_w:int_paypal:plugin_b2ccrmsync:plugin_wishlists_w:plugin_serviceworker_w:plugin_storelocator_w:plugin_commercepayments:int_paypal:app_storefront_widgets:plugin_ordermanagement:int_shipperhq_sfra:int_avatax_sfra:lib_productlist:plugin_datadownload:plugin_marketing_cloud:app_storefront_base:int_marketing_cloud:int_handlerframework:bc_job_components:plugin_sitemap&quot;&#10;}" />
+  </component>
+</project>

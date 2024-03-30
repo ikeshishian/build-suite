@@ -6,7 +6,7 @@ certificate
 
 #Exclude IDE related project configurations
 .project
-.idea
+//.idea
 .editorconfig
 .vscode
 
